@@ -14,9 +14,9 @@
 |     10.-12.12.  |  12    | JavaFx, chartien asentamista ja harjoittelua |
 |    14.-15.   |   13   | testaus |
 |   16   |  5    | ohjelman viimeistelyä|
-|       |      | testaus |
-|       |      | käyttöohje |
-|       |      | testaus |
+|  17-18.     |    12  | testaus, ja ohjelman viimeistely JavaDoc ja pysyväistiedon tallennuksen kanssa taisteleminen |
+|      18.12. |      | palautus |
+|   20.12.    |  2    | Kaiken varmistaminen, jotta ohjelman testaaminen ja arvostelu varmasti toimii|
 
 
-| yht   |  87.5  | | 
+| yht   |  101.5  | | 

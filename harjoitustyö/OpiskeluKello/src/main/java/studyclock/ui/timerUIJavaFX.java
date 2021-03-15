@@ -34,10 +34,6 @@ import javafx.stage.Stage;
 
 import studyclock.domain.StudyClockService;
 
-/**
- *
- * @author mazaalto
- */
 public class timerUIJavaFX extends Application {
 
     private Timeline timeline;
@@ -123,7 +119,7 @@ public class timerUIJavaFX extends Application {
             if (timeline != null) {
                 timeline.stop();
             }
-
+            this.service.setTimerSeconds();
             timeline = new Timeline();
             timeline.setCycleCount(Timeline.INDEFINITE);
             timeline.getKeyFrames().add(
@@ -249,13 +245,13 @@ public class timerUIJavaFX extends Application {
                                 Integer.toString(this.service.getSeconds() % 60));
                         timerLabelMinutes.setText(
                                 Integer.toString(this.service.getSeconds() / 60));
+                        instructions.setText("Time is set");
+                        window.setScene(settingup);
 
                     } else {
                         instructions.setText("Remember to adjust time in minutes");
                         frase.setText("Remember to adjust time in minutes");
                     }
-                    instructions.setText("Time is set");
-                    window.setScene(settingup);
 
                 }
         );
@@ -264,9 +260,13 @@ public class timerUIJavaFX extends Application {
         setSubject.setOnAction(
                 (event) -> {
                     String subject = subjecInText.getText();
-                    this.service.setSubject(subject);
-                    instructionsForSub.setText("Subject is set");
-                    window.setScene(settingup);
+                    if (!this.service.getType().equals("study")) {
+                        instructionsForSub.setText("You dont't have to give a subject for a break");
+                    } else {
+                        this.service.setSubject(subject);
+                        instructionsForSub.setText("Subject is set");
+                        window.setScene(settingup);
+                    }
                 }
         );
         backFromSetup.setOnAction(
@@ -320,16 +320,15 @@ public class timerUIJavaFX extends Application {
         Button graph = new Button("Update the graphs");
         graph.setStyle("-fx-font-size: 1.5em");
         graph.setTextFill(Color.GOLDENROD);
-        Label instructionsForSave = new Label("Here you can save your history");
-        Button saveTheHistory = new Button("Save the history to memory");
-        saveTheHistory.setStyle("-fx-font-size: 1.5em");
-        saveTheHistory.setTextFill(Color.GOLDENROD);
+        Button saveData = new Button("Save the data");
+        saveData.setStyle("-fx-font-size: 1.5em");
+        saveData.setTextFill(Color.GOLDENROD);
+
         buttonsAnalytics.getChildren().add(text2);
         buttonsAnalytics.getChildren().add(goalAsText);
         buttonsAnalytics.getChildren().add(goal);
         buttonsAnalytics.getChildren().add(graph);
-        buttonsAnalytics.getChildren().add(instructionsForSave);
-        buttonsAnalytics.getChildren().add(saveTheHistory);
+        buttonsAnalytics.getChildren().add(saveData);
         buttonsAnalytics.getChildren().add(backToStartAnalytics);
         graphScene.setBottom(buttonsAnalytics);
         window.setScene(scene);
@@ -398,14 +397,13 @@ public class timerUIJavaFX extends Application {
 
                 }
         );
-        //Save the history to file
-        saveTheHistory.setOnAction(
+        //Save the data
+        saveData.setOnAction(
                 (event) -> {
-                    boolean result = this.service.saveFile();
-                    if (result) {
-                        instructionsForSave.setText("Your history is saved");
+                    if (this.service.saveFile()) {
+                        text2.setText("Data is saved");
                     }
-                    instructionsForSave.setText("This feature is not available yet");
+                    window.setScene(first);
 
                 }
         );

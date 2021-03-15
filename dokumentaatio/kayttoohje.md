@@ -1,9 +1,10 @@
 # Ohjelma Study Clockin käyttöohje
 
-Lataa tiedosto omalle koneellesi tästä [studyclock.jar](https://github.com/Mazaalto/ot-harjoitustyo2020/releases/tag/1.0)
+Lataa tiedosto omalle koneellesi tästä [studyclock.jar](https://github.com/Mazaalto/ot-harjoitustyo2020/releases/tag/1.2)
 
 ### Miten käynnistän ohjelman?
-Ohjelma käynnistetään yksinkertaisesti komennolla
+Ohjelma käynnistetään yksinkertaisesti komennolla jos ohjelma on tallennettuna studyclock.jar tiedoston nimellä. (jos latasit zip-tiedoston, täytyy ensiksi suorittaa mvn package-käsky samassa kansiossa missä ohjelma on eli (harjoitustyö/Opiskelukello). Tämän jälkeen löytyy kansiosta tiedosto OpiskeluKello-1.0-SNAPSHOT.jar, jonka voi ajaa samalla tavalla kuin esimerkin jar-tiedoston)
+
 
 ```
 java -jar studyclock.jar 
@@ -21,7 +22,7 @@ Seuraavaksi määritellään opiskeltavan ajan pituus. Se tapahtuu syöttämäll
 Lopuksi voit palata takaisin alkuun painamalla "Go back"- nappia.
 
 ## Painettaessa Show the study history
-On erittäin mielenkiintoista nähdä, kuinka paljon on tullut luettua yhteensä. Pääset näkemään sen painamalla alkuvalikossa "Show the study history"-nappia. Ruudulle piirtyy oletusnäkymä, jossa on näkyvissä vasemmalla taulukko mikä on tunteina päivän lukutavoite sekä oikealla miten opiskelu on jakautunut eri aineiden välillä.
+On erittäin mielenkiintoista nähdä, kuinka paljon on tullut luettua yhteensä. Pääset näkemään sen painamalla alkuvalikossa "Show the study history"-nappia. Ruudulle piirtyy oletusnäkymä, jossa on näkyvissä vasemmalla taulukko mikä on tunteina päivän lukutavoite sekä oikealla miten opiskelu on jakautunut eri aineiden välillä. Voit tallentaa oman opiskeludatasi tekstitiedostoon napilla "Save the data".
 
 ### Omien tietojen näkeminen
 Jos haluat nähdä omat onnistuneet opiskeluaikasi tai haluat määrittää tavoitteen uudelleen, niin kirjoita tunneissa numeroina tekstikenttään montako tuntia haluat opiskella.
